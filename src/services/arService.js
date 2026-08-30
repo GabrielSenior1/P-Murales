@@ -68,4 +68,8 @@ export function setupModelViewer(viewerElement, mural) {
   viewerElement.setAttribute('touch-action', 'pan-y');
   viewerElement.setAttribute('auto-rotate', '');
   viewerElement.setAttribute('shadow-intensity', '1');
+  
+  // Optimizaciones de AR para murales
+  viewerElement.setAttribute('ar-scale', 'auto');
+  viewerElement.setAttribute('ar-placement', 'wall');
 }
