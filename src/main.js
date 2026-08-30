@@ -18,6 +18,8 @@ const elements = {
   qrModal: document.getElementById('qr-modal'),
   btnCloseModal: document.getElementById('btn-close-modal'),
   qrImage: document.getElementById('qr-image'),
+  btnAr: document.getElementById('btn-ar'),
+  btnArText: document.getElementById('btn-ar-text'),
   detailTitle: document.getElementById('detail-title'),
   detailArtist: document.getElementById('detail-artist'),
   detailLocation: document.getElementById('detail-location'),
@@ -140,6 +142,37 @@ async function initApp() {
   elements.qrModal.addEventListener('click', (e) => {
     if (e.target === elements.qrModal) closeQRCodeModal();
   });
+
+  // Manejar estado de carga del botón AR
+  if (elements.btnAr) {
+    elements.btnAr.addEventListener('click', async () => {
+      const originalText = elements.btnArText.textContent;
+      const icon = elements.btnAr.querySelector('.material-symbols-outlined');
+      const originalIcon = icon.textContent;
+      
+      // Estado de carga
+      elements.btnArText.textContent = 'Descargando (150MB)...';
+      icon.textContent = 'sync';
+      icon.classList.add('animate-spin');
+      elements.btnAr.style.opacity = '0.7';
+      elements.btnAr.style.pointerEvents = 'none';
+
+      try {
+        await elements.viewer.activateAR();
+      } catch (e) {
+        console.error("Error activando AR:", e);
+      }
+      
+      // Restaurar botón después de unos segundos o si falla
+      setTimeout(() => {
+        elements.btnArText.textContent = originalText;
+        icon.textContent = originalIcon;
+        icon.classList.remove('animate-spin');
+        elements.btnAr.style.opacity = '1';
+        elements.btnAr.style.pointerEvents = 'auto';
+      }, 5000);
+    });
+  }
 
   // Cargar datos iniciales
   const initialMurals = await getMurals();
