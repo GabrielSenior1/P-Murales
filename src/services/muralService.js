@@ -5,7 +5,7 @@ import { db, isFirebaseConfigured } from '../config/firebase.js';
 export const SAMPLE_MURALS = [
   {
     id: "mural-01",
-    title: "LAS HORMIGAS",
+    title: "MURAL 01 – LAS HORMIGAS",
     artist: "Gabriel Senior",
     location: "Galería Principal",
     category: "Murales Vivos",
