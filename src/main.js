@@ -161,17 +161,33 @@ async function initApp() {
         await elements.viewer.activateAR();
       } catch (e) {
         console.error("Error activando AR:", e);
+        resetARButton(elements.btnArText, icon, originalText, originalIcon);
       }
       
-      // Restaurar botón después de unos segundos o si falla
-      setTimeout(() => {
-        elements.btnArText.textContent = originalText;
-        icon.textContent = originalIcon;
-        icon.classList.remove('animate-spin');
-        elements.btnAr.style.opacity = '1';
-        elements.btnAr.style.pointerEvents = 'auto';
-      }, 5000);
+      // Restaurar botón como respaldo en caso de que falle silenciosamente (30 segundos)
+      const fallbackTimer = setTimeout(() => {
+        resetARButton(elements.btnArText, icon, originalText, originalIcon);
+      }, 30000);
+
+      // Escuchar cuando el AR realmente inicie o se cancele
+      elements.viewer.addEventListener('ar-status', function onARStatus(event) {
+        if (event.detail.status === 'session-started' || event.detail.status === 'failed' || event.detail.status === 'not-presenting') {
+          clearTimeout(fallbackTimer);
+          resetARButton(elements.btnArText, icon, originalText, originalIcon);
+          elements.viewer.removeEventListener('ar-status', onARStatus);
+        }
+      });
     });
+  }
+
+  function resetARButton(textElement, iconElement, originalText, originalIcon) {
+    if (textElement.textContent !== originalText) {
+      textElement.textContent = originalText;
+      iconElement.textContent = originalIcon;
+      iconElement.classList.remove('animate-spin');
+      elements.btnAr.style.opacity = '1';
+      elements.btnAr.style.pointerEvents = 'auto';
+    }
   }
 
   // Cargar datos iniciales
