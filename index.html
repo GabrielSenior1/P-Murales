@@ -1,0 +1,270 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aura3D - 3D Object Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f8f9ff",
+                      "secondary-fixed-dim": "#b2c5ff",
+                      "on-tertiary-container": "#6074ac",
+                      "on-surface": "#141c25",
+                      "primary-container": "#ffffff",
+                      "on-primary-container": "#747676",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#dbe3f0",
+                      "secondary-fixed": "#dae2ff",
+                      "primary": "#5d5f5f",
+                      "on-primary-fixed": "#1a1c1c",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "on-primary-fixed-variant": "#454747",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d3dbe7",
+                      "inverse-on-surface": "#e9f1fe",
+                      "on-surface-variant": "#444748",
+                      "inverse-surface": "#29313b",
+                      "secondary-container": "#789dfe",
+                      "outline": "#747878",
+                      "surface-container": "#e6eefb",
+                      "on-secondary-fixed": "#001848",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#003182",
+                      "on-background": "#141c25",
+                      "surface-container-low": "#eef4ff",
+                      "surface-container-highest": "#dbe3f0",
+                      "background": "#f8f9ff",
+                      "secondary": "#315ab6",
+                      "on-tertiary-fixed-variant": "#2f457a",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#5d5f5f",
+                      "outline-variant": "#c4c7c8",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#0d419d",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "tertiary": "#485d93",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#dae2ff",
+                      "surface-container-high": "#e1e9f6",
+                      "inverse-primary": "#c6c6c7",
+                      "primary-fixed": "#e2e2e2",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#001848",
+                      "brand-gold": "#D4AF37",
+                      "brand-dark-blue": "#0B2559",
+                      "brand-light-blue": "#EAF2FF",
+                      "brand-royal-blue": "#1746A2",
+                      "brand-white": "#FFFFFF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "16px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "md": "24px",
+                      "margin-mobile": "16px",
+                      "xs": "8px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "title-md": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        }
+        .material-symbols-outlined[style*="'FILL' 1"] {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-brand-white min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-on-surface docked full-width top-0 flat no shadows flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-md max-w-7xl mx-auto flex md:flex"><div class="flex items-center justify-center gap-md w-full">
+<a class="flex items-center justify-center text-brand-dark-blue hover:text-brand-royal-blue transition-all duration-300 hover:scale-110 bg-brand-white shadow-md rounded-full w-[40px] h-[40px] md:w-[48px] md:h-[48px]" href="#">
+<span class="material-symbols-outlined text-[24px] md:text-[28px]">home</span>
+</a>
+<div class="font-headline-lg-mobile md:font-display-lg text-headline-lg-mobile md:text-display-lg font-bold text-brand-dark-blue">Murales que cobran vida</div>
+</div></nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center py-lg md:py-xl px-margin-mobile md:px-margin-desktop lg:px-margin-desktop">
+<!-- Centered Card -->
+<article class="w-full max-w-4xl flex flex-col gap-lg md:gap-xl">
+<!-- Top Section: 3D Viewer Container -->
+<div class="bg-brand-light-blue rounded-xl aspect-square md:aspect-[16/9] w-full flex items-center justify-center relative overflow-hidden group border border-transparent hover:border-brand-royal-blue transition-colors duration-300">
+<!-- Model Viewer instead of Graphic -->
+<model-viewer
+  id="mural-viewer"
+  src=""
+  ios-src=""
+  alt="Visor 3D de Mural"
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  camera-controls
+  touch-action="pan-y"
+  auto-rotate
+  shadow-intensity="1"
+  exposure="1"
+  style="width: 100%; height: 100%;">
+</model-viewer>
+
+<!-- Overlay Controls (Floating Layer 2dp) -->
+<div class="absolute right-xs md:right-md top-1/2 -translate-y-1/2 flex flex-col gap-xs md:gap-sm pointer-events-none">
+<button class="pointer-events-auto bg-brand-white text-brand-dark-blue rounded-full w-[40px] h-[40px] md:w-[48px] md:h-[48px] flex items-center justify-center shadow-[0px_8px_24px_rgba(11,37,89,0.08)] hover:bg-brand-light-blue transition-colors">
+<span class="material-symbols-outlined text-[20px] md:text-[24px]" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="pointer-events-auto bg-brand-white text-brand-dark-blue rounded-full w-[40px] h-[40px] md:w-[48px] md:h-[48px] flex items-center justify-center shadow-[0px_8px_24px_rgba(11,37,89,0.08)] hover:bg-brand-light-blue transition-colors">
+<span class="material-symbols-outlined text-[20px] md:text-[24px]" data-icon="360">360</span>
+</button>
+<button class="pointer-events-auto bg-brand-white text-brand-dark-blue rounded-full w-[40px] h-[40px] md:w-[48px] md:h-[48px] flex items-center justify-center shadow-[0px_8px_24px_rgba(11,37,89,0.08)] hover:bg-brand-light-blue transition-colors">
+<span class="material-symbols-outlined text-[20px] md:text-[24px]" data-icon="restart_alt">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Middle Section: View in AR Button -->
+<div class="flex justify-center">
+<button onclick="document.getElementById('mural-viewer').activateAR()" class="bg-brand-gold text-brand-dark-blue font-label-caps text-label-caps px-xl py-sm rounded-full flex items-center gap-sm shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="view_in_ar" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+                    View in AR
+                </button>
+</div>
+<!-- Bottom Section: Description -->
+<div class="max-w-2xl mx-auto text-center flex flex-col gap-sm md:gap-md">
+<h1 id="detail-title" class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-brand-royal-blue">
+                    Aero Chair Model X
+                </h1>
+<p id="detail-description" class="font-body-sm md:font-body-lg text-body-sm md:text-body-lg text-brand-dark-blue opacity-80 leading-relaxed">
+                    Experience the perfect blend of modern minimalism and ergonomic mastery. The Aero Chair Model X features a sleek, structural design crafted from premium materials, ideal for high-end corporate environments and luxury home offices. Rotate and zoom to explore the intricate details and superior craftsmanship.
+                </p>
+</div>
+</article>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-xl border-t border-surface-variant dark:border-outline-variant flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto gap-sm md:gap-0">
+<div class="font-title-md text-title-md text-on-surface dark:text-surface-bright text-center md:text-left">Murales que cobran vida</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant text-center md:text-right">© 2026 Gabriel Senior. Todos los derechos reservados</div>
+</div>
+</footer>
+
+<div style="display: none;">
+  <div id="status-indicator"></div>
+  <div id="status-text"></div>
+  <div id="murals-list"></div>
+  <div id="mural-count"></div>
+  <button id="btn-open-qr"></button>
+  <div id="qr-modal"></div>
+  <button id="btn-close-modal"></button>
+  <img id="qr-image" />
+  <span id="detail-artist"></span>
+  <span id="detail-location"></span>
+  <span id="detail-category"></span>
+  <span id="spec-year"></span>
+  <span id="spec-dimensions"></span>
+  <span id="spec-format"></span>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+
+</body></html>

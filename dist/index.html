@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murales 3D & Realidad Aumentada</title>
+  <meta name="description" content="Plataforma interactiva para la exploración y visualización en Realidad Aumentada de murales 3D.">
+  
+  <!-- Estilos base -->
+  
+  <!-- Web Component de Google Model Viewer para 3D y AR -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-CeRbI4-2.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-FgEdO2-r.css">
+</head>
+<body>
+
+  <!-- Barra de Navegación / Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <span style="font-size: 1.8rem;">🏛️</span>
+      <div>
+        <h1 class="brand-title">Proyecto Murales 3D</h1>
+        <p class="brand-subtitle">Plataforma Web & Realidad Aumentada</p>
+      </div>
+    </div>
+
+    <!-- Indicador de estado del servidor / Firebase -->
+    <div id="server-status" class="server-status-badge">
+      <span id="status-indicator" class="status-dot fallback"></span>
+      <span id="status-text">Cargando servidor...</span>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="main-container">
+    
+    <!-- Barra Lateral: Catálogo de Murales -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2 class="section-title">Murales Disponibles</h2>
+        <span id="mural-count" style="font-size: 0.85rem; color: var(--text-muted);">0 murales</span>
+      </div>
+
+      <!-- Lista generada dinámicamente -->
+      <div id="murals-list" class="murals-list">
+        <!-- Tarjetas inyectadas vía JS -->
+      </div>
+    </aside>
+
+    <!-- Sección Central: Visor 3D y Detalles -->
+    <section class="viewer-section">
+      
+      <!-- Contenedor de Model Viewer -->
+      <div class="viewer-wrapper">
+        <model-viewer
+          id="mural-viewer"
+          src=""
+          ios-src=""
+          alt="Visor 3D de Mural"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          shadow-intensity="1"
+          exposure="1">
+          
+          <!-- Botón de AR nativo para móviles integrado en model-viewer -->
+          <button slot="ar-button" id="ar-button" class="btn btn-primary" style="position: absolute; bottom: 20px; right: 20px;">
+            📱 Ver en Realidad Aumentada
+          </button>
+        </model-viewer>
+
+        <!-- Barra de acciones complementaria (ej. QR para desktop) -->
+        <div class="ar-action-bar">
+          <button id="btn-open-qr" class="btn btn-secondary">
+            📷 Escanear con el Celular
+          </button>
+        </div>
+      </div>
+
+      <!-- Ficha Técnica del Mural Seleccionado -->
+      <article class="detail-card">
+        <div class="detail-header">
+          <h2 id="detail-title" class="detail-title">Cargando información...</h2>
+          <div class="detail-meta">
+            <span id="detail-artist">Artista: —</span>
+            <span>•</span>
+            <span id="detail-location">Ubicación: —</span>
+            <span>•</span>
+            <span id="detail-category">Categoría: —</span>
+          </div>
+        </div>
+
+        <p id="detail-description" class="detail-description">
+          Selecciona un mural del catálogo para visualizarlo en 3D e interactuar en Realidad Aumentada.
+        </p>
+
+        <div class="detail-specs">
+          <div class="spec-item">
+            <span class="spec-label">Año de Creación</span>
+            <span id="spec-year" class="spec-value">—</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Dimensiones</span>
+            <span id="spec-dimensions" class="spec-value">—</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Formato 3D</span>
+            <span id="spec-format" class="spec-value">GLB / USDZ</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Modal para Código QR en PC / Desktop -->
+  <div id="qr-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="btn-close-modal" class="btn-close-modal">✕</button>
+      <h3 class="modal-title">Escanear para Realidad Aumentada</h3>
+      <p class="modal-subtitle">Apunta con la cámara de tu celular o tablet para proyectar el mural en tu entorno.</p>
+      
+      <div class="qr-image-container">
+        <img id="qr-image" src="" alt="Código QR AR">
+      </div>
+
+      <p style="font-size: 0.8rem; color: var(--text-muted);">
+        Compatible con dispositivos Android (Google Play Services AR) y iOS (iPhone / iPad QuickLook).
+      </p>
+    </div>
+  </div>
+
+  <!-- Entrada principal de JavaScript -->
+</body>
+</html>
