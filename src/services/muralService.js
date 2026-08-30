@@ -5,44 +5,44 @@ import { db, isFirebaseConfigured } from '../config/firebase.js';
 export const SAMPLE_MURALS = [
   {
     id: "mural-01",
-    title: "Mural Ancestral Tayrona",
-    artist: "Colectivo Sierra Viva",
-    location: "Plaza Principal - Sector Centro",
-    category: "Cultura & Historia",
-    description: "Representación tridimensional de la iconografía y guardianes ancestrales de la Sierra Nevada.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/Astronaut.glb", // URL de prueba interactiva
+    title: "LAS HORMIGAS",
+    artist: "Gabriel Senior",
+    location: "Galería Principal",
+    category: "Murales Vivos",
+    description: "Una exploración visual de las hormigas en su hábitat natural, cobrando vida en Realidad Aumentada.",
+    glbUrl: "https://modelviewer.dev/shared-assets/models/Astronaut.glb", // Reemplazar con URL real
     usdzUrl: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
-    thumbnail: "🎨",
-    year: "2024",
-    dimensions: "12m x 4m",
+    thumbnail: "🐜",
+    year: "2026",
+    dimensions: "A escala",
     arScale: "auto"
   },
   {
     id: "mural-02",
-    title: "El Jaguar del Bosque Húmedo",
-    artist: "Mariana Restrepo",
-    location: "Calle 15 con Carrera 4ta",
-    category: "Fauna Silvestre",
-    description: "Mural tridimensional hiperrealista del felino más imponente de la región del Caribe.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+    title: "MURAL 02 – LA CANOA",
+    artist: "Gabriel Senior",
+    location: "Exhibición Acuática",
+    category: "Murales Vivos",
+    description: "Mural tridimensional de una canoa tradicional interactiva.",
+    glbUrl: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb", // Reemplazar con URL real
     usdzUrl: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.usdz",
-    thumbnail: "🐆",
-    year: "2024",
-    dimensions: "8m x 5m",
+    thumbnail: "🛶",
+    year: "2026",
+    dimensions: "A escala",
     arScale: "auto"
   },
   {
     id: "mural-03",
-    title: "Ecosistema de Manglar y Corales",
-    artist: "Taller Mar y Sierra",
-    location: "Paseo del Malecón",
-    category: "Flora y Mar",
-    description: "Inmersión 3D en las raíces del manglar rojo y las especies marinas que habitan en él.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/reflective-sphere.gltf",
+    title: "MURAL 03 – LA SEÑORA LAVANDO",
+    artist: "Gabriel Senior",
+    location: "Paseo Cultural",
+    category: "Costumbres",
+    description: "Escena costumbrista de una señora lavando, capturada en un modelo 3D detallado.",
+    glbUrl: "https://modelviewer.dev/shared-assets/models/reflective-sphere.gltf", // Reemplazar con URL real
     usdzUrl: "",
-    thumbnail: "🌿",
-    year: "2025",
-    dimensions: "15m x 3.5m",
+    thumbnail: "🧺",
+    year: "2026",
+    dimensions: "A escala",
     arScale: "auto"
   }
 ];
