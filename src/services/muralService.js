@@ -10,8 +10,8 @@ export const SAMPLE_MURALS = [
     location: "Galería Principal",
     category: "Murales Vivos",
     description: "Una exploración visual de las hormigas en su hábitat natural, cobrando vida en Realidad Aumentada.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/Astronaut.glb", // Reemplazar con URL real
-    usdzUrl: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz",
+    glbUrl: "https://firebasestorage.googleapis.com/v0/b/p-murales.firebasestorage.app/o/mural-1-opt.glb?alt=media",
+    usdzUrl: "",
     thumbnail: "🐜",
     year: "2026",
     dimensions: "A escala",
@@ -24,8 +24,8 @@ export const SAMPLE_MURALS = [
     location: "Exhibición Acuática",
     category: "Murales Vivos",
     description: "Mural tridimensional de una canoa tradicional interactiva.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb", // Reemplazar con URL real
-    usdzUrl: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.usdz",
+    glbUrl: "https://firebasestorage.googleapis.com/v0/b/p-murales.firebasestorage.app/o/mural-2-opt.glb?alt=media",
+    usdzUrl: "",
     thumbnail: "🛶",
     year: "2026",
     dimensions: "A escala",
@@ -38,7 +38,7 @@ export const SAMPLE_MURALS = [
     location: "Paseo Cultural",
     category: "Costumbres",
     description: "Escena costumbrista de una señora lavando, capturada en un modelo 3D detallado.",
-    glbUrl: "https://modelviewer.dev/shared-assets/models/reflective-sphere.gltf", // Reemplazar con URL real
+    glbUrl: "https://firebasestorage.googleapis.com/v0/b/p-murales.firebasestorage.app/o/mural-3-opt.glb?alt=media",
     usdzUrl: "",
     thumbnail: "🧺",
     year: "2026",
